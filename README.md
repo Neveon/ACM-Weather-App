@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ACM Workshop - React intro creating a Weather App
 
-## Available Scripts
+[API](https://fcc-weather-api.glitch.me/) to get weather information
 
-In the project directory, you can run:
+1) Need `Node` and `npm` versions >= 8.10 and 5.6, respectively
 
-### `yarn start`
+2) `npx create-react-app app-name`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  - Create React APP (CRA) in the `app-name` directory
+  - `npx` comes bundled with `npm` version 5.2+ and is a node package runner
+  - If for some reason you don't have npx, install with `npm i -g npx` command
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+3) `npm start` will start the CRA and instructs us to edit `src/App.js`
 
-### `yarn test`
+  - If we want to see the new edit, we would have to save and reload
+  - *Edit the line to 'Hello World'*
+  - `src/index.js` file is what renders this App function returning HTML into a <div> with `id='root'`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4) Create `src/components` and `src/components/Weather.js`
 
-### `yarn build`
+5) Usually `src/App.js` is where we put together all our components
+ 
+  - `import Weather from './components`, notice components start with a capital letter
+  - Remove all HTML except for div because all HTML returned by components need a wrapping div
+  - Place `<Weather/>` into `App.js` so it could render and we can see it in the browser
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+6) We will create a simple 'form' for the user to input their address
+  - `<input type=text onChange={handleChange}/>`
+  - `<button onClick={getWeather}/>`
+  - We will be using `useState` to handle the component state
+  - `const [obj, func] = useState()`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+7) Create handleChange() and getWeather()
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - We will get our weather from `wttr.in/${location}?format=j1`
+  - This will return JSON data of the weather
+  - Temperature information can be found at:
+  - `weather[0]` where there is:
+  - `.maxTempC`, `.maxTempF`, `.minTempC`, `.minTempF` 
+  - There is a lot more info in the JSON data but this is what we will use
 
-### `yarn eject`
+8) Change HTML in `return()` for customization
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+9) Edit css to make it look nice, maybe add an image?
