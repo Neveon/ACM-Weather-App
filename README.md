@@ -1,6 +1,6 @@
 # ACM Workshop - React intro creating a Weather App
 
-[API](https://fcc-weather-api.glitch.me/) to get weather information
+[API](https://github.com/chubin/wttr.in/) to get weather information
 
 1) Need `Node` and `npm` versions >= 8.10 and 5.6, respectively
 
